@@ -10,7 +10,7 @@ function Header() {
     }
 
     const componentLogo = () => {
-        return <Link to="/"><img src='logo.png' alt='Logo Moview' width={80} /></Link>
+        return <Link to="/"><img src='/logo.png' alt='Logo Moview' width={80} /></Link>
     }
 
     const componentButtonLogin = () => {

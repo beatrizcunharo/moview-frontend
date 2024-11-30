@@ -5,12 +5,16 @@ import { getMoviesByTitle } from '../../services/moviedbService'
 import { normalizeString } from '../../utils'
 import Carrossel from '../../components/Carrossel'
 import { MOVIE_DB_IMAGE_URL } from '../../constants'
+import { useNavigate } from 'react-router-dom'
+import Erro from '../../components/Erro'
 
 const BuscarFilme = () => {
     const [query, setQuery] = useState("")
     const [movies, setMovies] = useState([])
     const [showResults, setShowResults] = useState(false)
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
+    const [error, setError] = useState(null)
 
     const handleSearch = async () => {
         if (query) {
@@ -28,6 +32,10 @@ const BuscarFilme = () => {
 
                 if (err.response && err.response.status === 404) {
                     setMovies([])
+                }
+
+                if(err.response && err.response.status === 500) {
+                    setError(err)
                 }
             }
             setLoading(false)
@@ -52,7 +60,7 @@ const BuscarFilme = () => {
                         <div key={index} className='card-filme'>
                             <img className='card-image' src={`${MOVIE_DB_IMAGE_URL}${movie.poster_path}`} alt={movie.title} />
                             <p className='card-title'>{movie.title}</p>
-                            <button className='card-button'>Ver detalhes</button>
+                            <button className='card-button' onClick={() => navigate(`/detalhes/${movie.id}`)}>Ver detalhes</button>
                         </div>
                     ))}
                 </div>
@@ -62,6 +70,8 @@ const BuscarFilme = () => {
             </>
         )
     }
+
+    if(error) return <Erro text="Ops, não foi possível acessar. Tente novamente mais tarde."/>
 
     return (
         <div className='container'>

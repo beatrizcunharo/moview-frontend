@@ -6,6 +6,11 @@ const normalizeString = (str) => {
         .toLowerCase()
 }
 
+const redirectTo = (website) => {
+    window.location.href = website
+}
+
 export {
-    normalizeString
+    normalizeString,
+    redirectTo
 }
