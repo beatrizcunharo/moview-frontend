@@ -49,7 +49,8 @@ const Perfil = () => {
 
     useEffect(() => {
         fetchUserData()
-    }, [id, fetchUserData])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id])
 
     const handleChange = (e) => {
         const { name, value } = e.target
