@@ -59,6 +59,7 @@ function Header() {
                 <nav className="header-items">
                     <Link to="/" onClick={toggleHeader}>Filmes</Link>
                     <Link to="/buscar-filmes" onClick={toggleHeader}>Buscar Filmes</Link>
+                    <Link to="/buscar-usuario" onClick={toggleHeader}>Buscar Usuários</Link>
                 </nav>
 
                 {componentButtonLogin()}
@@ -71,6 +72,7 @@ function Header() {
                     <div className="mobile-header-items">
                         <Link to="/" onClick={toggleHeader}>Filmes</Link>
                         <Link to="/buscar-filmes" onClick={toggleHeader}>Buscar Filmes</Link>
+                        <Link to="/buscar-usuario" onClick={toggleHeader}>Buscar Usuários</Link>
                     </div>
                 )}
                 {componentLogo()}

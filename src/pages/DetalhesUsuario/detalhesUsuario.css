@@ -1,0 +1,19 @@
+.detalhes-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: flex-start;
+}
+
+.data-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.all-data-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

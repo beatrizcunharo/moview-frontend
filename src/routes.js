@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import CriarUsuario from "./pages/CriarUsuario";
 import Favoritos from "./pages/Favoritos";
 import Perfil from "./pages/Perfil";
+import BuscarUsuario from "./pages/BuscarUsuario";
+import DetalhesUsuario from "./pages/DetalhesUsuario";
 
 function RoutesApp() {
     return (
@@ -21,6 +23,8 @@ function RoutesApp() {
                 <Route path="/criar-usuario" element={<CriarUsuario />} />
                 <Route path="/favoritos" element={<Favoritos />} />
                 <Route path="/perfil" element={<Perfil />} />
+                <Route path="/buscar-usuario" element={<BuscarUsuario />} />
+                <Route path="/detalhes-usuario" element={<DetalhesUsuario />} />
             </Routes>
         </BrowserRouter>
     )

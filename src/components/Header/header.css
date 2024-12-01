@@ -61,6 +61,7 @@
     padding: 10px;
     border-radius: 5px;
     width: 150px;
+    z-index: 10;
 }
 
 .header-mobile .mobile-header-items a {
@@ -121,6 +122,7 @@
     width: 150px;
     margin-right: 10px;
     color: #fff;
+    z-index: 10;
 }
 
 .user-menu button {

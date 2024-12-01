@@ -37,9 +37,19 @@ const getUserById = async (id) => {
     }
 }
 
+const getUserByUsername = async ({ username }) => {
+    try {
+        const response = await api.get(`usuario/buscar-nome/${username}`)
+        return response.data
+    } catch (error) {
+        throw error.response.data.details
+    }
+}
+
 export {
     login,
     createUser,
     updateUser,
-    getUserById
+    getUserById,
+    getUserByUsername
 }

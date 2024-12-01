@@ -4,7 +4,7 @@ import { getMovieDetails } from '../../services/moviedbService'
 import { MOVIE_DB_IMAGE_URL } from '../../constants'
 import Loader from '../../components/Loader'
 import { useNavigate } from 'react-router-dom'
-import { getUserData } from '../../utils'
+import { getUserData, normalizeString } from '../../utils'
 import Erro from '../../components/Erro'
 import './favoritos.css'
 
@@ -50,7 +50,7 @@ const Favoritos = () => {
 
     const filteredMovies = query
         ? favorites.filter((movie) =>
-              movie?.title?.toLowerCase().includes(query.toLowerCase())
+              movie?.title?.toLowerCase().includes(normalizeString(query))
           )
         : favorites
 

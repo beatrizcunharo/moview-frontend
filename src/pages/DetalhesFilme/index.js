@@ -17,6 +17,7 @@ const DetalhesFilme = () => {
     const navigate = useNavigate()
     const { id: userId, email } = getUserData()
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         const fetchMovieDetails = async () => {
             try {
@@ -49,7 +50,7 @@ const DetalhesFilme = () => {
             fetchMovieDetails()
             fetchFavorites()
         }
-    }, [id])
+    }, [])
 
     if (loading) return <Loader />
     if (!movieDetails) return <Erro text="Detalhes do filme não encontrado." />

@@ -24,6 +24,7 @@ const Perfil = () => {
         navigate("/")
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchUserData = async () => {
         setLoading(true)
         try {
@@ -48,7 +49,7 @@ const Perfil = () => {
 
     useEffect(() => {
         fetchUserData()
-    }, [id])
+    }, [id, fetchUserData])
 
     const handleChange = (e) => {
         const { name, value } = e.target
