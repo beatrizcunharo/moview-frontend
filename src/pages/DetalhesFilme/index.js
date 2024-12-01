@@ -50,7 +50,7 @@ const DetalhesFilme = () => {
             fetchMovieDetails()
             fetchFavorites()
         }
-    }, [])
+    }, [id, userId])
 
     if (loading) return <Loader />
     if (!movieDetails) return <Erro text="Detalhes do filme não encontrado." />
