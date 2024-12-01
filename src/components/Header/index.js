@@ -27,6 +27,7 @@ function Header() {
     }
 
     const handleLogout = () => {
+        if(location.pathname === "/perfil") navigate('/')
         removeUserData()
         window.location.reload(true)
     }

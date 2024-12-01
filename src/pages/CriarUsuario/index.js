@@ -17,10 +17,20 @@ const CriarUsuario = () => {
         dataNascimento: '',
         email: ''
     })
+
     const [loading, setLoading] = useState(false)
 
     const handleChange = (e) => {
         const { name, value } = e.target
+
+        if (name === 'user') {
+            const regex = /^[a-zA-Z0-9_]*$/
+            if (!regex.test(value)) {
+                alert('O nome de usuário só pode conter letras, números e _.')
+                return
+            }
+        }
+
         setFormData((prevState) => ({
             ...prevState,
             [name]: value,

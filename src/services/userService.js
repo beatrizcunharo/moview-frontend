@@ -19,7 +19,27 @@ const createUser = async (data) => {
     }
 }
 
+const updateUser = async ({ id, data }) => {
+    try {
+        const response = await api.put(`usuario/atualizar/${id}`, data)
+        return response.data
+    } catch (error) {
+        throw error.response.data.details
+    }
+}
+
+const getUserById = async (id) => {
+    try {
+        const response = await api.get(`usuario/buscar/${id}`)
+        return response.data
+    } catch (error) {
+        throw error.response.data.details
+    }
+}
+
 export {
     login,
-    createUser
+    createUser,
+    updateUser,
+    getUserById
 }

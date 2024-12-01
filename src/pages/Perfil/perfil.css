@@ -1,0 +1,42 @@
+.perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.perfil-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-alterar {
+    background-color: #889fbd;
+    border: none;
+    color: #000;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 700;
+    width: 150px;
+}
+
+.perfil-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.perfil-fields {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+    .perfil-form {
+        flex-direction: column;
+    }
+}
