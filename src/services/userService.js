@@ -10,6 +10,16 @@ const login = async (email, senha) => {
     }
 }
 
+const createUser = async (data) => {
+    try {
+        const response = await api.post('usuario/criar', data)
+        return response.data
+    } catch (error) {
+        throw error.response.data.details
+    }
+}
+
 export {
-    login
+    login,
+    createUser
 }

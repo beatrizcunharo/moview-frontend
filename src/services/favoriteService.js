@@ -13,13 +13,14 @@ const getFavorite = async (userId) => {
     }
 }
 
-const addFavorite = async ({ userId, email, movieId }) => {
+const addFavorite = async ({ userId, email, movieId, movieTitle }) => {
     try {
 
         const response = await api.post('favoritos/adicionar', {
             userId,
             email,
-            movieId
+            movieId,
+            movieTitle
         })
 
         return response.data

@@ -1,0 +1,29 @@
+.favoritos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.filmes-container-favoritos {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+@media (max-width: 767px) {
+    .filmes-container-favoritos {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card-filme {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-filme {
+        padding: 10px;
+    }
+}

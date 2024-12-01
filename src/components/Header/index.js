@@ -10,7 +10,7 @@ function Header() {
     const navigate = useNavigate()
     const location = useLocation()
 
-    if (location.pathname === "/login") {
+    if (location.pathname === "/login" || location.pathname === "/criar-usuario") {
         return null
     }
 
@@ -39,6 +39,8 @@ function Header() {
                     <span>{name}</span>
                     {loginOpen && (
                         <div className="user-menu">
+                            <button onClick={() => navigate('/perfil')}>Meu perfil</button>
+                            <button onClick={() => navigate('/favoritos')}>Meus favoritos</button>
                             <button onClick={() => handleLogout()}>Logout</button>
                         </div>
                     )}

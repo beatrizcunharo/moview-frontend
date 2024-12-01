@@ -1,0 +1,17 @@
+.create-account {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.create-account-content {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

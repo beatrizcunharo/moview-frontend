@@ -67,6 +67,7 @@ const Login = () => {
                                 required
                             />
                         </div>
+                        <div>Não tem uma conta? <a href='/criar-usuario' className='create-account-link'>Crie aqui!</a></div>
                         <div className='button-content'>
                             <button className="login-button" type="submit" disabled={disabledButton()}>
                                 Entrar
@@ -77,7 +78,6 @@ const Login = () => {
                         </div>
                     </form>
                 </div>
-
             </>
             }
         </div>

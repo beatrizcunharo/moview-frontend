@@ -61,7 +61,7 @@ const DetalhesFilme = () => {
 
     const addFavoriteHandle = async () => {
         try {
-            await addFavorite({ userId: userId, email: email, movieId: id })
+            await addFavorite({ userId: userId, email: email, movieId: id, movieTitle: movieDetails.title })
             alert("Adicionado com sucesso.")
             setFavorite(true)
         } catch (err) {
