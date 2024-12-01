@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Loader from '../../components/Loader'
-import { isEmptyObject, normalizeString } from '../../utils'
+import { isEmptyObject } from '../../utils'
 import { useNavigate } from 'react-router-dom'
 import Erro from '../../components/Erro'
 import { getUserByUsername } from '../../services/userService'
@@ -19,7 +19,7 @@ const BuscarUsuario = () => {
             setShowResults(true)
             setLoading(true)
             try {
-                const usuarioByName = await getUserByUsername({ username: normalizeString(query) })
+                const usuarioByName = await getUserByUsername({ username: query })
                 if (usuarioByName && !isEmptyObject(usuarioByName)) {
                     setUsuario(usuarioByName.user)
                 } else {
