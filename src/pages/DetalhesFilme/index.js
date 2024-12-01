@@ -5,14 +5,17 @@ import { getMovieDetails } from '../../services/moviedbService'
 import Loader from '../../components/Loader'
 import Erro from '../../components/Erro'
 import { MOVIE_DB_IMAGE_URL } from '../../constants'
-import { redirectTo } from '../../utils'
+import { getUserData, redirectTo } from '../../utils'
+import { getFavorite, addFavorite, deleteFavorite } from '../../services/favoriteService'
 
 const DetalhesFilme = () => {
     const { id } = useParams()
     const [movieDetails, setMovieDetails] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
+    const [favorite, setFavorite] = useState(false)
     const navigate = useNavigate()
+    const { id: userId, email } = getUserData()
 
     useEffect(() => {
         const fetchMovieDetails = async () => {
@@ -25,10 +28,26 @@ const DetalhesFilme = () => {
             } finally {
                 setLoading(false)
             }
-        };
+        }
+
+        const fetchFavorites = async () => {
+            try {
+                const favorites = await getFavorite(userId)
+                const hasThisMovieFavorite = favorites.find((favorite) => favorite.movieId === id)
+                if (hasThisMovieFavorite) {
+                    setFavorite(true)
+                } else {
+                    setFavorite(false)
+                }
+            } catch (err) {
+                setError('Erro ao carregar os favoritos do usuário.')
+            }
+        }
+
 
         if (id) {
             fetchMovieDetails()
+            fetchFavorites()
         }
     }, [id])
 
@@ -40,6 +59,38 @@ const DetalhesFilme = () => {
 
     const btnVoltar = "< Voltar"
 
+    const addFavoriteHandle = async () => {
+        try {
+            await addFavorite({ userId: userId, email: email, movieId: id })
+            alert("Adicionado com sucesso.")
+            setFavorite(true)
+        } catch (err) {
+            setError('Erro ao adicionar favorito.')
+        }
+    }
+
+    const deleteFavoriteHandle = async () => {
+        try {
+            await deleteFavorite({ userId: userId, movieId: id })
+            alert("Removido dos favoritos.")
+            setFavorite(false)
+        } catch (err) {
+            setError('Erro ao adicionar favorito.')
+        }
+    }
+
+    const componentButtonFavorite = () => {
+        if (!userId) {
+            return <></>
+        } else {
+            if (!favorite) {
+                return <button className='detalhes-button' onClick={() => addFavoriteHandle()}>Favoritar</button>
+            } else {
+                return <button onClick={() => deleteFavoriteHandle()} className='detalhes-button'>Remover favorito</button>
+            }
+        }
+    }
+
     return (
         <section className='detalhes container'>
             <div>
@@ -47,9 +98,9 @@ const DetalhesFilme = () => {
             </div>
             <div className='detalhes-content'>
                 <div className='detalhes-left'>
-                    <img src={`${MOVIE_DB_IMAGE_URL}${movieDetails.poster_path}`} width={300} alt={movieDetails.title}/>
+                    <img src={`${MOVIE_DB_IMAGE_URL}${movieDetails.poster_path}`} width={300} alt={movieDetails.title} />
                     <div className='detalhes-button-content'>
-                        <button className='detalhes-button'>Favoritar</button>
+                        {componentButtonFavorite()}
                         <a href={`https://youtube.com/results?search_query=${movieDetails.title} Trailer`} target="_blank" rel="noopener noreferrer">
                             <button className='detalhes-button'>
                                 Trailer
