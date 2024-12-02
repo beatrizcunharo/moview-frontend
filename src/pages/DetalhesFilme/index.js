@@ -5,7 +5,7 @@ import { getMovieDetails } from '../../services/moviedbService'
 import Loader from '../../components/Loader'
 import Erro from '../../components/Erro'
 import { MOVIE_DB_IMAGE_URL } from '../../constants'
-import { getUserData, redirectTo } from '../../utils'
+import { getUserData } from '../../utils'
 import { getFavorite, addFavorite, deleteFavorite } from '../../services/favoriteService'
 
 const DetalhesFilme = () => {
@@ -107,7 +107,11 @@ const DetalhesFilme = () => {
                                 Trailer
                             </button>
                         </a>
-                        {movieDetails.homepage && <button className='detalhes-button' onClick={() => redirectTo(movieDetails.homepage)}>Página do filme</button>}
+                        {movieDetails.homepage && <a href={movieDetails.homepage} target="_blank" rel="noopener noreferrer">
+                            <button className='detalhes-button'>
+                                Página do filme
+                            </button>
+                        </a>}
                     </div>
                 </div>
                 <div className='detalhes-right'>
@@ -117,7 +121,7 @@ const DetalhesFilme = () => {
                         <p>{movieDetails.overview}</p>
                     </div>
                     <div className='detalhes-right-genre'>Gêneros: <p>{allGenres.join('/')}</p></div>
-                    <p className='detalhes-right-average'>Avaliação: {movieDetails.vote_average} / 10</p>
+                    <p className='detalhes-right-average'>Avaliação: {movieDetails.vote_average.toFixed(1)} / 10</p>
                 </div>
             </div>
         </section>

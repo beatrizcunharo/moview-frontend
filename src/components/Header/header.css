@@ -87,6 +87,10 @@
     width: 100%;
 }
 
+.user-menu-button {
+    cursor: pointer;
+}
+
 @media (max-width: 767px) {
     .header-desktop {
         display: none;

@@ -24,7 +24,6 @@ const Login = () => {
                     email, id: result.id, name: result.name
                 }
                 setUserData(user)
-                alert('Login bem-sucedido!')
                 navigate('/')
             }
         } catch (error) {

@@ -143,13 +143,13 @@ const Perfil = () => {
                     </div>
 
                     <div className="login-div">
-                        <label>Descrição:</label>
+                        <label>Descrição pessoal:</label>
                         <input
                             type="text"
                             name="descricao"
                             value={formData.descricao}
                             onChange={handleChange}
-                            placeholder="Preencha uma descrição"
+                            placeholder="Descreva sobre você"
                             className="login-input"
                             disabled={fieldsDisabled}
                         />

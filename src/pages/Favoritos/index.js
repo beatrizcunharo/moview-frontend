@@ -16,6 +16,10 @@ const Favoritos = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
 
+    if (!id) {
+        navigate("/")
+    }
+
     const fetchFavoritesDetails = async (favoriteMovies) => {
         try {
             const detailsPromises = favoriteMovies.map((favorite) =>
@@ -29,6 +33,11 @@ const Favoritos = () => {
     }
 
     useEffect(() => {
+
+        if (!id) {
+            navigate("/")
+        }
+
         const fetchFavorites = async () => {
             setLoading(true)
             try {
@@ -41,11 +50,12 @@ const Favoritos = () => {
             } finally {
                 setLoading(false)
             }
-        };
+        }
 
         if (id) {
             fetchFavorites()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
     const filteredMovies = query

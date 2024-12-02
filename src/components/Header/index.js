@@ -40,9 +40,9 @@ function Header() {
                     <span>{name}</span>
                     {loginOpen && (
                         <div className="user-menu">
-                            <button onClick={() => navigate('/perfil')}>Meu perfil</button>
-                            <button onClick={() => navigate('/favoritos')}>Meus favoritos</button>
-                            <button onClick={() => handleLogout()}>Logout</button>
+                            <button onClick={() => navigate('/perfil')} className="user-menu-button">Meu perfil</button>
+                            <button onClick={() => navigate('/favoritos')} className="user-menu-button">Meus favoritos</button>
+                            <button onClick={() => handleLogout()} className="user-menu-button">Logout</button>
                         </div>
                     )}
                 </div>

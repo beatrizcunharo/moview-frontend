@@ -67,10 +67,10 @@ const DetalhesUsuario = () => {
                     {data.cidade && <p>Cidade: {data.cidade}</p>}
                     {data.estado && <p>Estado: {data.estado}</p>}
                     <p>Criação da conta Moview: {new Intl.DateTimeFormat('pt-BR').format(new Date(data.dataCriacao))}</p>
-                    {data.dataNascimento && <p>Criação de Nascimento: {new Intl.DateTimeFormat('pt-BR').format(new Date(data.dataNascimento))}</p>}
+                    {data.dataNascimento && <p>Data de Nascimento: {new Intl.DateTimeFormat('pt-BR').format(new Date(data.dataNascimento))}</p>}
                 </div>
 
-                {data.descricao && <p>Descrição: {data.descricao}</p>}
+                {data.descricao && <p>Descrição pessoal: {data.descricao}</p>}
             </div>}
 
 
